@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Uploader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .screenshot img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .badges img {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Google Sheets Uploader</h1>
+    </header>
+    <div class="container">
+        <p>A web-based application that allows users to upload an Excel file and automatically update the contents of a Google Sheet in one step.</p>
+
+        <!-- Badges -->
+        <div class="badges">
+            <img src="https://img.shields.io/badge/Version-1.0.0-brightgreen" alt="Version">
+            <img src="https://img.shields.io/badge/Node.js-%3E%3D16-blue" alt="Node.js Version">
+            <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
+            <img src="https://img.shields.io/badge/Deployed-Netlify-blueviolet" alt="Deployed on Netlify">
+        </div>
+
+        <!-- Logo -->
+        <p align="center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/200px-Google_%22G%22_Logo.svg.png" alt="Google Sheets Logo" width="150">
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>File Upload:</strong> Users can upload an Excel file (`.xlsx` or `.xls`) via a simple web interface.</li>
+            <li><strong>Google Sheets Integration:</strong> The uploaded file replaces the content of a specified Google Sheet.</li>
+            <li><strong>Automated Workflow:</strong> Streamlines the process of updating Google Sheets with new data.</li>
+            <li><strong>Serverless Backend:</strong> Uses Netlify Functions to handle file processing and API interactions.</li>
+        </ul>
+
+        <h2>Screenshots</h2>
+        <div class="screenshot">
+            <img src="./screenshots/upload-form.png" alt="Upload Form">
+            <p><em>Figure 1: Upload Form</em></p>
+        </div>
+        <div class="screenshot">
+            <img src="./screenshots/google-sheet.png" alt="Updated Google Sheet">
+            <p><em>Figure 2: Updated Google Sheet</em></p>
+        </div>
+
+        <h2>Installation</h2>
+        <ol>
+            <li>Clone the repository:
+                <pre><code>git clone https://github.com/your-username/google-sheets-uploader.git</code></pre>
+            </li>
+            <li>Install dependencies:
+                <pre><code>npm install</code></pre>
+            </li>
+            <li>Set up environment variables by creating a <code>.env</code> file:
+                <pre><code>
+GOOGLE_PRIVATE_KEY="your-private-key"
+GOOGLE_CLIENT_EMAIL="your-client-email"
+SPREADSHEET_ID="your-google-sheet-id"
+                </code></pre>
+            </li>
+            <li>Run locally:
+                <pre><code>npm start</code></pre>
+            </li>
+        </ol>
+
+        <h2>Usage</h2>
+        <ol>
+            <li>Open the web page in your browser.</li>
+            <li>Click the "Choose File" button and select an Excel file (`.xlsx` or `.xls`).</li>
+            <li>Click "Upload".</li>
+            <li>The app will process the file and replace the contents of the specified Google Sheet.</li>
+        </ol>
+
+        <h2>Deployment</h2>
+        <p>This application is designed to be deployed on <a href="https://www.netlify.com/">Netlify</a> using serverless functions. Follow these steps:</p>
+        <ol>
+            <li>Push your code to a GitHub repository.</li>
+            <li>Connect your repository to Netlify.</li>
+            <li>Configure the build settings:
+                <ul>
+                    <li><strong>Build Command:</strong> <code>npm install</code></li>
+                    <li><strong>Publish Directory:</strong> <code>public</code></li>
+                </ul>
+            </li>
+            <li>Set environment variables in Netlify for <code>GOOGLE_PRIVATE_KEY</code>, <code>GOOGLE_CLIENT_EMAIL</code>, and <code>SPREADSHEET_ID</code>.</li>
+            <li>Deploy and test the live site.</li>
+        </ol>
+
+        <h2>Built With ❤️ Using</h2>
+        <ul>
+            <li><a href="https://expressjs.com/">Express.js</a>: Backend framework.</li>
+            <li><a href="https://www.npmjs.com/package/multer">Multer</a>: Middleware for handling file uploads.</li>
+            <li><a href="https://www.npmjs.com/package/xlsx">XLSX</a>: Library for parsing Excel files.</li>
+            <li><a href="https://github.com/googleapis/google-api-nodejs-client">Google APIs Node.js Client</a>: For interacting with the Google Sheets API.</li>
+        </ul>
+
+        <h2>Limitations</h2>
+        <ul>
+            <li><strong>File Size:</strong> The maximum file size is approximately 4 MB due to Netlify's request size limit.</li>
+            <li><strong>Execution Time:</strong> Netlify Functions have a maximum execution time of 10 seconds (free plan) or 15 seconds (paid plan).</li>
+            <li><strong>Google Sheets API Limits:</strong> Ensure the total number of cells in your Google Sheet does not exceed 5 million.</li>
+        </ul>
+
+        <h2>Contributing</h2>
+        <p>Contributions are welcome! If you’d like to contribute, follow these steps:</p>
+        <ol>
+            <li>Fork the repository.</li>
+            <li>Create a new branch (<code>git checkout -b feature/your-feature</code>).</li>
+            <li>Commit your changes (<code>git commit -m "Add your feature"</code>).</li>
+            <li>Push to the branch (<code>git push origin feature/your-feature</code>).</li>
+            <li>Open a pull request.</li>
+        </ol>
+
+        <h2>License</h2>
+        <p>This project is licensed under the <a href="LICENSE">MIT License</a>.</p>
+    </div>
+    <footer>
+<<<<<<< HEAD
+        &copy; 2025 Google Sheets Uploader. All rights reserved.
+    </footer>
+</body>
+</html>
+=======
+        &copy; 2023 Google Sheets Uploader. All rights reserved.
+    </footer>
+</body>
+</html>
+>>>>>>> e6d5086f4d40a97f74caa1bf9e05827f36f0a078
